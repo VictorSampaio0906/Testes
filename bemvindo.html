@@ -60,23 +60,14 @@
       document.getElementById("cidade").textContent = cidade;
 
       const botao = document.getElementById("verOferta");
-      const som = document.getElementById("somNotificacao");
 
       botao.addEventListener("click", () => {
-        // Tocar som (liberado porque houve clique)
-        som.play().catch(() => {
-          console.warn("Som bloqueado mesmo após clique");
-        });
-
-        // Redirecionar para a página real com os parâmetros
         const url = `index.html?nome=${encodeURIComponent(
           nome
         )}&cidade=${encodeURIComponent(cidade)}&idade=${encodeURIComponent(
           idade
         )}`;
-        setTimeout(() => {
-          window.location.href = url;
-        }, 300); // pequena pausa para o som tocar
+        window.location.href = url;
       });
     </script>
   </body>
