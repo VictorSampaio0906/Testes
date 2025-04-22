@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #0f0f17;
+  color: #ffffff;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #1b1b2f, #0f0f17);
+}
+
+.titulo {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.texto {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #bdbdd6;
+}
+
+.btn-oferta {
+  text-decoration: none;
+  background-color: #7d5eff;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-oferta:hover {
+  background-color: #693ef9;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 2rem;
+  }
+
+  .texto {
+    font-size: 1rem;
+  }
+}
