@@ -1,4 +1,3 @@
-// Pega o nome da URL
 const params = new URLSearchParams(window.location.search);
 const nome = params.get("nome");
 
