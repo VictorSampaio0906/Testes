@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bem-vindo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #0f0f17;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        margin: 10px 0;
+      }
+      button {
+        background-color: #7d5eff;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bem-vindo, <span id="nome">amigo</span>!</h1>
+    <p>
+      Preparamos uma oferta especial para quem está em
+      <span id="cidade">sua cidade</span>.
+    </p>
+    <button id="verOferta">Ver minha oferta</button>
+
+    <!-- Áudio que será destravado com o clique -->
+    <audio
+      id="somNotificacao"
+      src="style/audio/notificacao.mp3"
+      preload="auto"
+    ></audio>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const nome = params.get("nome") || "visitante";
+      const cidade = params.get("cidade") || "sua cidade";
+      const idade = params.get("idade") || "";
+
+      document.getElementById("nome").textContent = nome;
+      document.getElementById("cidade").textContent = cidade;
+
+      const botao = document.getElementById("verOferta");
+      const som = document.getElementById("somNotificacao");
+
+      botao.addEventListener("click", () => {
+        // Tocar som (liberado porque houve clique)
+        som.play().catch(() => {
+          console.warn("Som bloqueado mesmo após clique");
+        });
+
+        // Redirecionar para a página real com os parâmetros
+        const url = `index.html?nome=${encodeURIComponent(
+          nome
+        )}&cidade=${encodeURIComponent(cidade)}&idade=${encodeURIComponent(
+          idade
+        )}`;
+        setTimeout(() => {
+          window.location.href = url;
+        }, 300); // pequena pausa para o som tocar
+      });
+    </script>
+  </body>
+</html>
