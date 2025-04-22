@@ -19,11 +19,25 @@
     <h1 class="titulo">
       Seja bem-vindo(a), <span id="nomeUsuario">visitante</span>!
     </h1>
-    <p>Perfeito! Pessoas com <span id="idade"></span> também estão testando!</p>
+    <p>
+      Perfeito! Pessoas com <span id="idade"></span>anos também estão testando!
+    </p>
     <p>Está fazendo sucesso em <span id="cidade"></span>!</p>
 
     <a href="#" class="btn-oferta">Ver Oferta Especial →</a>
 
-    <script src="style/main.js"></script>
+    <div id="notificacaoCompra" class="notificacao hidden">
+      ✅ Alguém de
+      <span class="SpanCidade" id="cidadeNotificacao">sua cidade</span> acabou
+      de comprar!
+    </div>
+    <audio
+      id="somNotificacao"
+      src="style/audio/notificacao.mp3"
+      preload="auto"
+    ></audio>
+
+    <script src="js/main.js"></script>
+    <script src="js/som.js"></script>
   </body>
 </html>
